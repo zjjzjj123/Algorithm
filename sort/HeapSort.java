@@ -33,7 +33,7 @@ public class HeapSort {
         buildMaxHeap(array);
         //2.循环将堆首位（最大值）与末位交换，然后在重新调整最大堆
         while (len > 0) { //建立最大堆之后 将最大值和后面的最值交换然后，在调整即可
-            swap(array, 0, len - 1);
+            swap(array, 0, len - 1);  //堆中 最前面的肯定是最大的或者是最小的
             len--; //缩小调整的范围
             adjustHeap(array, 0);
         }
@@ -44,7 +44,7 @@ public class HeapSort {
     {
         //在认为是一个无序的堆  现在对堆进行调整
 //        for(int i=0; i<=len/2-1;i++)// 这个是从上往下操作 因此需要也就是下沉的操作那么就需要左右节点那个节点大于父节点
-        for(int i =len/2 - 1; i>=0; i--)  //建立了一个大顶堆 从下到上  简单
+        for(int i =len/2 - 1; i>=0; i--)  //建立了一个大顶堆 从下到上  简单  这里一定要从中间开始
         {
             adjustHeap(array,i); //对堆进行每个节点进行调整 因为节点的子节点是i*2 因此i只能小于2
         }
@@ -53,7 +53,6 @@ public class HeapSort {
     public  static void  adjustHeap(int[] array,int i)
     {
         //调整堆
-        System.out.println("leng: " + array.length); //从上往下
         int maxIndex = i; //认为这个就是最大值的索引
         if(i*2+1<len && array[i*2+1] > array[maxIndex]) //说明根节点是不是最值 //更改最值的index
             maxIndex = i*2 + 1;
@@ -63,7 +62,7 @@ public class HeapSort {
         if(maxIndex != i) //说明最值改变了 //不再进入这里 说明调整完了
         {
             swap(array, maxIndex, i); //交换最值
-            adjustHeap(array, maxIndex); //继续调整直到符合堆的性质  //用while也是能实现的
+            adjustHeap(array, maxIndex); //继续调整直到符合堆的性质  //用while也是能实现的 使用递归的形式
         }
     }
     /**

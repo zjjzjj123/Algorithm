@@ -34,12 +34,12 @@ public class Mymerge {
         int j=mid+1; //右边开始
         for(int k=left; k<=right; k++) //总共需要归并多少次
         {
-            if(i>=mid+1) //说明左边的归并完成
+            if(i==mid+1) //说明左边的归并完成 //因为在归并到最后一个mid的时候i++le
             {
                 arr[k] = temp[j];
                 j++;
             }
-            else if(j>=right+1)  //j可以等于right
+            else if(j==right+1)  //j可以等于right
             {
                 arr[k] = temp[i];
                 i++;

@@ -51,7 +51,7 @@ public class Sort {
         }
         System.out.println(Arrays.toString(array));
     }
-
+    //插入排序
     public static void insertSor()
     {
         int[] array = {1,2,3,4,6,7,5};
